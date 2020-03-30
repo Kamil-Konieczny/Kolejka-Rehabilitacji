@@ -26,6 +26,10 @@ public class KolejkaObj {
     {
         return pokoj;
     }
+    public void setPokoj(String pokoj)
+    {
+        this.pokoj = pokoj;
+    }
     
     public String getPacjent()
     {

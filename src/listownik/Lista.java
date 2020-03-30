@@ -134,10 +134,10 @@ public class Lista extends javax.swing.JFrame {
                     case "K.Pilna":
                         model4.addRow(new Object[]{element.getRodzaj(),element.getPokoj(),element.getPacjent(),element.getKod(),element.getData_poczatku(),element.getData_konca(),element.getIndex()});
                         break;
-                    case "K.Niepełnosprawna":
+                    case "K.Niepelnosprawna":
                         model9.addRow(new Object[]{element.getRodzaj(),element.getPokoj(),element.getPacjent(),element.getKod(),element.getData_poczatku(),element.getData_konca(),element.getIndex()});
                          break;   
-                    case "M.Niepełnosprawny":
+                    case "M.Niepelnosprawny":
                         model10.addRow(new Object[]{element.getRodzaj(),element.getPokoj(),element.getPacjent(),element.getKod(),element.getData_poczatku(),element.getData_konca(),element.getIndex()});
                          break;           
                 }}
@@ -331,7 +331,7 @@ public class Lista extends javax.swing.JFrame {
 
                         jLabel7.setText("Łóżko");
 
-                        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna" }));
+                        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna","M.Niepelnosprawny","K.Niepelnosprawna" }));
                         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jComboBox2ActionPerformed(evt);
@@ -454,12 +454,12 @@ public class Lista extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(15, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
 
                         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
@@ -911,9 +911,9 @@ public class Lista extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(25, 25, 25)
                                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(52, 52, 52)
+                                        .addGap(37, 37, 37)
                                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TF2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1699,8 +1699,8 @@ public class Lista extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
        lista2.clear();
-       try 
-       {
+//       try 
+//       {
         String rodzaj = jComboBox2.getSelectedItem().toString();
        String pokoj = jComboBox1.getSelectedItem().toString();
         String pacjent = jTextField1.getText();
@@ -1729,12 +1729,12 @@ public class Lista extends javax.swing.JFrame {
                tabela = jTable6;
                break;
            }
-            case "K.Niepełnosprawna":
+            case "K.Niepelnosprawna":
            {
                tabela = jTable9;
                break;
            }
-           case "M.Niepełnosprawny":
+           case "M.Niepelnosprawny":
            {
                tabela = jTable10;
                break;
@@ -1756,27 +1756,28 @@ public class Lista extends javax.swing.JFrame {
      for(KolejkaObj element:lista2)
      {
          if(pokoj.equals(element.getPokoj()))
-         {
+         {  
              int i = element.getIndex();
-             if(i==2||i==3)
+             
+             if(i==3||i==4||i==5)
              {
                last = element.getData_konca();
+               StringTokenizer token2 = new StringTokenizer(last,".");
+            int dzien = Integer.parseInt(token2.nextToken());
+         int miesiac = Integer.parseInt(token2.nextToken());
+        int rok = Integer.parseInt(token2.nextToken());
+        GregorianCalendar cal3 = new GregorianCalendar(rok,miesiac-1,dzien);
+       dataKon = cal3.getTime();
              }
          }
      }
-    StringTokenizer token = new StringTokenizer(last,".");
-        int dzien = Integer.parseInt(token.nextToken());
-        int miesiac = Integer.parseInt(token.nextToken());
-        int rok = Integer.parseInt(token.nextToken());
-        GregorianCalendar cal3 = new GregorianCalendar(rok,miesiac-1,dzien);
-        Date dataKon = cal3.getTime();
+        
         
          Ustaw_swieta sw = new Ustaw_swieta();
          SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
          String data_string = formatter.format(date);
          String  dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
 
-        
          if(rodzaj.length()<1)
          {
              JOptionPane.showMessageDialog(this, "Nie wybrano rodzaju");
@@ -1789,17 +1790,16 @@ public class Lista extends javax.swing.JFrame {
          {
              JOptionPane.showMessageDialog(this, "Niepoprawny numer pacjenta");
          }
-          else if(kod.length()<5)
+          else if(kod.length()<1)
          {
              JOptionPane.showMessageDialog(this, "Niepoprawny kod pacjenta");
          }
            else if(date.compareTo(dataKon)==-1 || date.compareTo(dataKon)==0)
           {
-              JOptionPane.showMessageDialog(this, "Data dodawanego pacjenta musi być późniejsza niż data zwolnienia ostatniego pacjenta oznaczona kolorem czerwonym");
+              JOptionPane.showMessageDialog(this, "Data dodawanego pacjenta musi być późniejsza niż data zwolnienia ostatniego pacjenta oznaczona kolorem niebieskim lub zielonym");
           }
           else if(sw.sprawdz_swieta(data_string, dayOfWeek)==true)
                      {
-                            System.out.println("weszlo");
                             boolean zm  = true; 
                             int temp = 0;
                          Calendar cal = Calendar.getInstance();    
@@ -1825,13 +1825,13 @@ public class Lista extends javax.swing.JFrame {
           {
                          dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
           }
-       }
-       catch(Exception ex)
-          {
-              JOptionPane.showMessageDialog(this,"Wprowadz date");          }
+//       }
+//       catch(Exception ex)
+//          {
+//              JOptionPane.showMessageDialog(this,"Błąd");          }
         
     }//GEN-LAST:event_jButton8ActionPerformed
-
+ Date dataKon;
     private void jTable9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable9MouseClicked
        jTable9.clearSelection();
         p = evt.getPoint();
@@ -2058,12 +2058,12 @@ public class Lista extends javax.swing.JFrame {
                tabela = jTable6;
                break;
            }
-           case "K.Niepełnosprawna":
+           case "K.Niepelnosprawna":
            {
                tabela = jTable9;
                break;
            }
-           case "M.Niepełnosprawny":
+           case "M.Niepelnosprawny":
            {
                tabela = jTable10;
                break;
@@ -2109,7 +2109,7 @@ public class Lista extends javax.swing.JFrame {
         
         else if(date.compareTo(dataKoncaListy) == -1||date.compareTo(dataKoncaListy) == 0)           
         {
-            temp = true;
+                temp = true;
                 SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
                 String dataa = format.format(data_poczatku);
                 String dziennn = new SimpleDateFormat("EEEE", Locale.ENGLISH).format( data_poczatku);
@@ -2154,14 +2154,11 @@ public class Lista extends javax.swing.JFrame {
           if(temp == false)
           {
             tab[i] = element;
-       
           }
           else
           {
-           
             tab[i+1]=element;
             temp = false;
-                  
           }
       }
        int i =0;
@@ -2218,20 +2215,17 @@ public class Lista extends javax.swing.JFrame {
         menuItem = new JMenuItem(
                 "Usuń"
         );
-        menuItem.getAccessibleContext().setAccessibleDescription("Usuń");
-        menuItem.addActionListener(new ActionListener() {
-            @Override
+       menuItem.getAccessibleContext().setAccessibleDescription("Usuń");
+       menuItem.addActionListener(new ActionListener() {
+       @Override
             public void actionPerformed(ActionEvent ae) {
-                
-                
                 
                 DefaultTableModel model = (DefaultTableModel) tabela.getModel();
                 int rowAtPoint = tabela.rowAtPoint(p);
                 String ix = model.getValueAt(rowAtPoint, 6).toString();
                 int indeX = Integer.parseInt(ix);
                 String data = model.getValueAt(rowAtPoint, 5).toString();
-                String dataP = model.getValueAt(rowAtPoint,4).toString();
-                String pokoj1 = model.getValueAt(rowAtPoint, 1).toString();  
+                String pesel = model.getValueAt(rowAtPoint,2).toString();
                 StringTokenizer token = new StringTokenizer(data, ".");
                 int dzien = Integer.parseInt(token.nextToken());
                 int miesiac = Integer.parseInt(token.nextToken());
@@ -2242,21 +2236,16 @@ public class Lista extends javax.swing.JFrame {
                 GregorianCalendar cal2 = new GregorianCalendar();
                 Date now = cal2.getTime();
                 
-                
-
-                for(int i=0;i<tabela.getRowCount();i++)
+                 for(int i=0;i<tabela.getRowCount();i++)
                 {
                     String temp = model.getValueAt(i, 6).toString();
                     int tempo = Integer.parseInt(temp);
-                    System.out.println(temp);
                     if(tempo == 3 && i>rowAtPoint)
                     {
                         tempp = true;
                     }
                 }
-               System.out.println("boolean : "+tempp+" rowAtPoint : "+rowAtPoint+" rowCount : "+tabela.getRowCount());
-                
-                if(indeX == 4)
+                  if(indeX == 4)
                 {
                     JOptionPane.showMessageDialog(null, "Nie można usunąć trwającej rehabilitacji");
                 }
@@ -2264,8 +2253,8 @@ public class Lista extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Powiadomiono pacjenta, nie można usunąć");
                 }
-                  
-               else if(indeX == 1 && tempp == false) {
+                else if(indeX == 1 && tempp == false)
+                {
                     zapis(true);
                     for (int count = 0; count < model.getRowCount(); count++) {
                         
@@ -2279,148 +2268,48 @@ public class Lista extends javax.swing.JFrame {
                             int index = Integer.parseInt(i);
                             lista2.add(new KolejkaObj(rodzaj, lozko, pacjent, data_poczatku, data_konca, kod,index));
                     }
-                    
-                    for (KolejkaObj element : lista2) {
-                        String d = element.getData_konca();
-                        String pokoj = element.getPokoj();
+                  for (int count = model.getRowCount()-1; count >= 0; count--) {
+                        String d = lista2.get(count).getData_konca();
                         StringTokenizer token2 = new StringTokenizer(d, ".");
-                        String pacjent = element.getPacjent();
-                        String kod = element.getKod();
                         int dzien2 = Integer.parseInt(token2.nextToken());
-                        int miesiac2 = Integer.parseInt(token2.nextToken());
-                        int rok2 = Integer.parseInt(token2.nextToken());
-                        GregorianCalendar cal3 = new GregorianCalendar(rok2, miesiac2 - 1, dzien2);
-                        Date chosenDate2 = cal3.getTime();
-                           
-                        if ((chosenDate.compareTo(chosenDate2) == -1 ||chosenDate.compareTo(chosenDate2)==0)) {
-                        dataP2 = element.getData_poczatku();
-                        dataK2 = element.getData_konca();
-                            
-                            element.setData_poczatku(dataP);
-                            element.setData_konca(dataK);                      
-                        
-                        dataP = dataP2;
-                        dataK = dataK2;
-                        
-                        }
-                    }
-                  lista2.remove(rowAtPoint);
+                       int miesiac2 = Integer.parseInt(token2.nextToken());
+                       int rok2 = Integer.parseInt(token2.nextToken());
+                       GregorianCalendar cal3 = new GregorianCalendar(rok2, miesiac2 - 1, dzien2);
+                       Date chosenDate2 = cal3.getTime();
+                       if ((chosenDate.compareTo(chosenDate2) == -1 || chosenDate.compareTo(chosenDate2) == 0)) {
+                           kod2 = lista2.get(count).getKod();
+                           pacjent2 = lista2.get(count).getPacjent();
+                           lozko2 = lista2.get(count).getPokoj();
+
+                           lista2.get(count).setKod(kod1);
+                           lista2.get(count).setPacjent(pacjent1);
+                           lista2.get(count).setPokoj(lozko1);
+
+                           kod1 = kod2;
+                           pacjent1 = pacjent2;
+                           lozko1 = lozko2;
+                       }
+                   }               
+                   lista2.remove(lista2.size() - 1);
                    model.getDataVector().removeAllElements();
                    model.fireTableDataChanged();
-                  for(KolejkaObj element:lista2)
-                  {
-                   model.addRow(new Object[]{element.getRodzaj(),element.getPokoj(),element.getPacjent(),element.getKod(),element.getData_poczatku(),element.getData_konca(),element.getIndex()});
-                 }
-                   for(KolejkaObj element:lista2)
-                  {
-                      if(element.getPokoj().equals(pokoj1))
-                      {
-                      dataK = element.getData_konca();
-                      }
-                  }
-
-
-                  for(lozka element: main.lista)
-                  {
-                    if((element.getPokoj()).equals(pokoj1))  
-                   {
-
-                      StringTokenizer token2 = new StringTokenizer(dataK, ".");
-                        int dzien2 = Integer.parseInt(token2.nextToken());
-                        int miesiac2 = Integer.parseInt(token2.nextToken());
-                        int rok2 = Integer.parseInt(token2.nextToken());
-                        GregorianCalendar cal4 = new GregorianCalendar(rok2, miesiac2 - 1, dzien2);
-                        Date dataKo = cal4.getTime();
-                        element.setData_konca(dataKo);
+                   for (KolejkaObj element : lista2) {
+                       model.addRow(new Object[]{element.getRodzaj(), element.getPokoj(), element.getPacjent(), element.getKod(), element.getData_poczatku(), element.getData_konca(), element.getIndex()});
                    }
-                  }
-                    
-                  lista2.clear();
-                     
-                }
-                
-                else
-               {
-                   tempp = false;
-                    JOptionPane.showMessageDialog(null, "Powiadomiono pacjenta z późniejszą datą, nie można usunąć tej pozycji");
+                   JOptionPane.showMessageDialog(null, "Usunięto pacjenta o peslu: "+pesel);
+                   lista2.clear();
                }
-               
-               if (chosenDate.compareTo(now) == -1) {
-                    model.removeRow(rowAtPoint);
-                    zapis(true);
-                } 
-                else if (chosenDate.compareTo(now) == 0) {
-                    zapis(true);
-                   for (int count = 0; count < model.getRowCount(); count++) {
-                        
-                            String rodzaj = model.getValueAt(count, 0).toString();
-                            String lozko = model.getValueAt(count, 1).toString();
-                            String pacjent = model.getValueAt(count, 2).toString();
-                            String kod = (String) model.getValueAt(count, 3);
-                            String data_poczatku = model.getValueAt(count, 4).toString();
-                            String data_konca = model.getValueAt(count, 5).toString();
-                            String i =  model.getValueAt(count,6).toString();
-                            int index = Integer.parseInt(i);
-                            lista2.add(new KolejkaObj(rodzaj, lozko, pacjent, data_poczatku, data_konca, kod,index)); 
-                    }
-                    for (KolejkaObj element : lista2) {
-                        String d = element.getData_konca();
-                        String pokoj = element.getPokoj();
-                        StringTokenizer token2 = new StringTokenizer(d, ".");
-                        int dzien2 = Integer.parseInt(token2.nextToken());
-                        int miesiac2 = Integer.parseInt(token2.nextToken());
-                        int rok2 = Integer.parseInt(token2.nextToken());
-                        GregorianCalendar cal3 = new GregorianCalendar(rok2, miesiac2 - 1, dzien2);
-                        Date chosenDate2 = cal3.getTime();
-                        
-                        if ((chosenDate.compareTo(chosenDate2) == -1 ||chosenDate.compareTo(chosenDate2)==0)&&pokoj.equals(pokoj1)) {
-                        dataP2 = element.getData_poczatku();
-                        dataK2 = element.getData_konca();
-                            
-                            element.setData_poczatku(dataP);
-                            element.setData_konca(dataK);                      
-                        
-                        dataP = dataP2;
-                        dataK = dataK2;
-                        
-                        }
-                      
-                    }
-                  lista2.remove(rowAtPoint);
-                   model.getDataVector().removeAllElements();
-                   model.fireTableDataChanged();
-                  for(KolejkaObj element:lista2)
-                  {
-                   model.addRow(new Object[]{element.getRodzaj(),element.getPokoj(),element.getPacjent(),element.getKod(),element.getData_poczatku(),element.getData_konca(),element.getIndex()});
-                  }
-                   for(KolejkaObj element:lista2)
-                  {
-                      if(element.getPokoj().equals(pokoj1))
-                      {
-                      dataK = element.getData_konca();
-                      }
-                  }
+                else {
+                   tempp = false;
+                   JOptionPane.showMessageDialog(null, "Powiadomiono pacjenta z późniejszą datą, nie można usunąć tej pozycji");
+               }
+           }
+            boolean tempp = false;
 
-                  for(lozka element: main.lista)
-                  {
-                    if((element.getPokoj()).equals(pokoj1))  
-                   {
-                      StringTokenizer token2 = new StringTokenizer(dataK, ".");
-                        int dzien2 = Integer.parseInt(token2.nextToken());
-                        int miesiac2 = Integer.parseInt(token2.nextToken());
-                        int rok2 = Integer.parseInt(token2.nextToken());
-                        GregorianCalendar cal4 = new GregorianCalendar(rok2, miesiac2 - 1, dzien2);
-                        Date dataKo = cal4.getTime();
-                        element.setData_konca(dataKo);
-                   }
-                  }
-                  lista2.clear();
-                }  
-            }
-             boolean tempp = false;
         });
-       
-        popup.add(menuItem); 
+      
+       popup.add(menuItem); 
+ 
           menuItem2 = new JMenuItem(
                 "Powiadomiono"
         );
@@ -2500,17 +2389,18 @@ public class Lista extends javax.swing.JFrame {
         });
      popup.add(menuItem4);   
     }
-    public String pacjentdod;
-    public String koddod;
-    String pacjent;
-    String kod;
-    String kodd;
-    String pacjentt;
-    String dataP;
-    String dataK;
-    String dataP2;
-    String dataK2;        
-    
+    private String pacjentdod;
+    private String koddod;
+    private String pacjent;
+    private String kod;
+    private String kodd;
+    private String pacjentt;  
+    private String kod1;
+    private String kod2;    
+    private String pacjent1;
+    private String pacjent2;
+    private String lozko1;
+    private String lozko2;
 
     public void zapis(boolean zmiany)
     {

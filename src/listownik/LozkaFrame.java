@@ -3,7 +3,6 @@ package listownik;
 
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -131,7 +130,7 @@ public class LozkaFrame extends javax.swing.JFrame {
                 }
             });
 
-            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna","M.Niepełnosprawny","K.Niepełnosprawna" }));
+            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna","M.Niepelnosprawny","K.Niepelnosprawna" }));
 
             jLabel3.setText("Rodzaj:");
 

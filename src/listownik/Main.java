@@ -143,7 +143,7 @@ public class Main extends javax.swing.JFrame {
         text1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         text1.setText("Pesel :");
 
-        CB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna","M.Niepełnosprawny","K.Niepełnosprawna" }));
+        CB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "M.Stabilny", "M.Pilny", "K.Stabilna", "K.Pilna","M.Niepelnosprawny","K.Niepelnosprawna" }));
         CB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB1ActionPerformed(evt);
