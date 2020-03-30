@@ -345,7 +345,7 @@ public class Ustaw_swieta extends JFrame {
 
         return x;
     }
-    boolean x=false;
+    private boolean x=false;
     
     
     
@@ -372,8 +372,8 @@ public class Ustaw_swieta extends JFrame {
         {
             return nazwa+" "+data;
         } 
-        String nazwa;
-        String data;
+       private String nazwa;
+       private String data;
     }
           
     private  List<listaSwiat> ListaS = new LinkedList<>();

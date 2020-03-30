@@ -76,6 +76,6 @@ public class Renderer extends DefaultTableCellRenderer implements TableCellRende
        
         return this;
     }
-     String s;
+     private String s;
 }
 

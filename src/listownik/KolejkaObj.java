@@ -74,12 +74,12 @@ public class KolejkaObj {
         return rodzaj+" "+pokoj+" "+pacjent+" "+data_poczatku+" "+data+" "+kod+" "+index;
     }
       
-    String rodzaj;
-    String pokoj;
-    String data;
-    String data_poczatku;
-    String pacjent;
-    String kod;
+    private String rodzaj;
+    private String pokoj;
+    private String data;
+    private String data_poczatku;
+    private String pacjent;
+    private String kod;
     int index;
 
 }

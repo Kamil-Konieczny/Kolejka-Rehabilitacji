@@ -59,19 +59,18 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-     public void setLista(List<lozka> Lista)
+      void setLista(List<lozka> Lista)
    {
        this.lista = Lista;
    }
     
-    public void reset()
+     void reset()
     {
-        
         new Main().setVisible(true);
         System.exit(1);
     }
      
-     void sprawdzanie(String gender) 
+   private void sprawdzanie(String gender) 
     {
         lozka d = lista.get(0);
         Date dd = d.getData_konca();
@@ -394,10 +393,10 @@ public class Main extends javax.swing.JFrame {
                 if (a == JOptionPane.YES_OPTION) 
                 { 
                     int index = index_finding(pokoj);
-                    String pokoj1 = lista.get(index).pokoj;
-                    String gender = lista.get(index).rodzaj;
-                    Date data = lista.get(index).data_konca;
-                    String kod = lista.get(index).kod;
+                    String pokoj1 = lista.get(index).getPokoj();
+                    String gender = lista.get(index).getRodzaj();
+                    Date data = lista.get(index).getData_konca();
+                    String kod = lista.get(index).getKod();
                     if(y.length() < 1)
                     {
                         kod = "-------";
@@ -471,7 +470,7 @@ public class Main extends javax.swing.JFrame {
         int x = 0 ;
         for(lozka element: lista) 
         {
-            if(element.pokoj.equals(pokoj))
+            if(element.getPokoj().equals(pokoj))
             {
                y=x; 
             }
@@ -489,7 +488,7 @@ public class Main extends javax.swing.JFrame {
     private void zapiszbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zapiszbuttonActionPerformed
         zapisz();
     }//GEN-LAST:event_zapiszbuttonActionPerformed
-    void zapisz()
+    private void zapisz()
     {
          zapis(false);
          ListaKolejki.clear();
@@ -596,13 +595,13 @@ public class Main extends javax.swing.JFrame {
         {
               int x = index_finding(pokoj);
               lozka l = ListaBackup.get(x);                                                                         
-              lista.set(x, new lozka(l.getRodzaj(),l.getPokoj(),l.getData_konca(),l.pacjent,l.getKod()));
+              lista.set(x, new lozka(l.getRodzaj(),l.getPokoj(),l.getData_konca(),l.getPacjent(),l.getKod()));
         }
        model.removeRow(row);
     }//GEN-LAST:event_usunbuttonActionPerformed
-    String pacjentt;
-    String kod2;
-     Date dat;
+    private String pacjentt;
+    private String kod2;
+    private Date dat;
     boolean bol = false;
     
     private void TF2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TF2KeyTyped
@@ -695,7 +694,7 @@ public class Main extends javax.swing.JFrame {
         
         return false;
     }                             
-    void zapis(boolean zmiany)
+   private void zapis(boolean zmiany)
     {
         this.zmiany = zmiany;
         if(zmiany == false)
@@ -759,5 +758,5 @@ public class Main extends javax.swing.JFrame {
     private String rodzaj;
     private String pacjent;
     private String str;
-    boolean zmiany=false;
+    private boolean zmiany=false;
 }

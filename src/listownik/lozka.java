@@ -57,11 +57,11 @@ public class lozka {
         String d = format.format(data_konca);
         return rodzaj+" "+pokoj+" "+d+" "+pacjent+" "+kod;
     }
-    String rodzaj;
-    String pokoj;
-    Date data_konca; 
-    String pacjent;
-    String kod;
+    private String rodzaj;
+    private String pokoj;
+    private Date data_konca; 
+    private String pacjent;
+    private String kod;
 
 
 }

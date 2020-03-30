@@ -2579,16 +2579,16 @@ public class Lista extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton zapiszButton;
     // End of variables declaration//GEN-END:variables
- JPopupMenu popup = new JPopupMenu();
-    JMenuItem menuItem = null;
-    JMenuItem menuItem2 = null;
-    JMenuItem menuItem3 = null;
-    JMenuItem menuItem4 = null;
-    JTable tabela;
-    Point p;
-    JScrollPane scpane;
+    private JPopupMenu popup = new JPopupMenu();
+    private JMenuItem menuItem = null;
+    private JMenuItem menuItem2 = null;
+    private JMenuItem menuItem3 = null;
+    private JMenuItem menuItem4 = null;
+    private JTable tabela;
+    private Point p;
+    private JScrollPane scpane;
     public List<KolejkaObj> lista2 = new LinkedList<>();
     int stan;
-    Main main = new Main();
+    private Main main = new Main();
     boolean zmiany = false;
 }
