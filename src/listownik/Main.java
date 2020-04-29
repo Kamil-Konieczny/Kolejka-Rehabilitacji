@@ -1,5 +1,7 @@
 package listownik;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -22,7 +24,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import listownik.KolejkaObj;
+import listownik.Lista;
+import listownik.LozkaFrame;
+import listownik.Ustaw_swieta;
+import listownik.lozka;
 
 
 public class Main extends javax.swing.JFrame {
@@ -98,7 +106,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        TF1 = new javax.swing.JTextField();
+        TF1 = new RoundedTextField();
         text1 = new javax.swing.JLabel();
         CB1 = new javax.swing.JComboBox<>();
         dodajbutton = new javax.swing.JButton();
@@ -109,12 +117,13 @@ public class Main extends javax.swing.JFrame {
         usunbutton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         zapiszbutton = new javax.swing.JButton();
-        TF2 = new javax.swing.JTextField();
+        TF2 = new RoundedTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setBackground(new java.awt.Color(180, 180, 180));
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(Toolkit.getDefaultToolkit().getImage("icon.jpg"));
         setLocationByPlatform(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -247,7 +256,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel1.setText("Ocena wartości");
+        jLabel1.setText("Kod");
 
         jButton5.setText("Łóżka");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -328,6 +337,8 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel1.getAccessibleContext().setAccessibleName("Kod");
+
         bindingGroup.bind();
 
         pack();
@@ -336,7 +347,7 @@ public class Main extends javax.swing.JFrame {
     private void TF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF1ActionPerformed
 
     }//GEN-LAST:event_TF1ActionPerformed
-
+ 
     private void TF1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TF1KeyTyped
         String x = TF1.getText();
         int y = x.length();

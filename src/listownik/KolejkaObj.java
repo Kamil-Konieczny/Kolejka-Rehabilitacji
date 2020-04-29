@@ -2,6 +2,8 @@
 package listownik;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.StringTokenizer;
 
 public class KolejkaObj {
 
@@ -46,6 +48,24 @@ public class KolejkaObj {
     public String getData_konca()
     {
         return data;
+    }
+    public Date getDataKoncaDate()
+    {
+         StringTokenizer token = new StringTokenizer(data,".");
+        int dzien = Integer.parseInt(token.nextToken());
+        int miesiac = Integer.parseInt(token.nextToken());
+        int rok = Integer.parseInt(token.nextToken());
+        GregorianCalendar cal = new GregorianCalendar(rok,miesiac-1,dzien);
+        return cal.getTime(); 
+    }
+    public Date getDataPoczatkuDate()
+    {
+         StringTokenizer token = new StringTokenizer(data_poczatku,".");
+        int dzien = Integer.parseInt(token.nextToken());
+        int miesiac = Integer.parseInt(token.nextToken());
+        int rok = Integer.parseInt(token.nextToken());
+        GregorianCalendar cal = new GregorianCalendar(rok,miesiac-1,dzien);
+        return cal.getTime(); 
     }
     public void setData_konca(String data)
     {

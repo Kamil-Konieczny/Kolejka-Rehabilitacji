@@ -43,9 +43,9 @@ public class Lista extends javax.swing.JFrame {
 
     public Lista() {
         initComponents();
-        this.setResizable(false);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+                this.setResizable(false);
         try {
             BufferedReader reader = new BufferedReader(new FileReader("baza/kolejka.txt"));
             String tresc;
@@ -274,7 +274,8 @@ public class Lista extends javax.swing.JFrame {
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setTitle("Lista pacjentów");
-                        setBackground(new java.awt.Color(153, 153, 153));
+                        setBackground(new java.awt.Color(255, 255, 255));
+                        setFocusable(false);
                         setIconImage(Toolkit.getDefaultToolkit().getImage("icon.jpg"));
                         setLocationByPlatform(true);
                         setResizable(false);
@@ -476,7 +477,7 @@ public class Lista extends javax.swing.JFrame {
                         jTable1.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                         jTable1.setColumnSelectionAllowed(false);
                         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-                        jTable1.setRowHeight(30);
+                        jTable1.setRowHeight(35);
                         jTable1.setRowMargin(2);
                         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -499,7 +500,7 @@ public class Lista extends javax.swing.JFrame {
                             }
                         });
                         if (jTable1.getColumnModel().getColumnCount() > 0) {
-                            jTable1.getColumnModel().getColumn(0).setPreferredWidth(90);
+                            jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
                             jTable1.getColumnModel().getColumn(0).setMaxWidth(90);
                             jTable1.getColumnModel().getColumn(1).setPreferredWidth(50);
                             jTable1.getColumnModel().getColumn(1).setMaxWidth(50);
@@ -512,7 +513,7 @@ public class Lista extends javax.swing.JFrame {
                         }
                         jScrollPane1.setViewportView(jTable1);
                         if (jTable1.getColumnModel().getColumnCount() > 0) {
-                            jTable1.getColumnModel().getColumn(0).setPreferredWidth(90);
+                            jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
                             jTable1.getColumnModel().getColumn(0).setMaxWidth(90);
                             jTable1.getColumnModel().getColumn(1).setPreferredWidth(50);
                             jTable1.getColumnModel().getColumn(1).setMaxWidth(50);
@@ -548,7 +549,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
-                        jTable5.setRowHeight(30);
+                        jTable5.setRowHeight(35);
                         jTable5.setRowMargin(2);
                         jTable5.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                         jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -594,7 +595,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
-                        jTable6.setRowHeight(30);
+                        jTable6.setRowHeight(35);
                         jTable6.setRowMargin(2);
                         jTable6.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                         jTable6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -647,7 +648,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
-                        jTable2.setRowHeight(30);
+                        jTable2.setRowHeight(35);
                         jTable2.setRowMargin(2);
                         jTable2.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -805,7 +806,7 @@ public class Lista extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jButton9))
                                     .addComponent(jScrollPane1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -1699,8 +1700,8 @@ public class Lista extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
        lista2.clear();
-//       try 
-//       {
+       try 
+       {
         String rodzaj = jComboBox2.getSelectedItem().toString();
        String pokoj = jComboBox1.getSelectedItem().toString();
         String pacjent = jTextField1.getText();
@@ -1752,7 +1753,6 @@ public class Lista extends javax.swing.JFrame {
      int index2 = Integer.parseInt(i);
      lista2.add(new KolejkaObj(rodzaj2,lozko2,pacjent2,dataP2,dataK2,kod2,index2));
      }
-     
      for(KolejkaObj element:lista2)
      {
          if(pokoj.equals(element.getPokoj()))
@@ -1761,18 +1761,12 @@ public class Lista extends javax.swing.JFrame {
              
              if(i==3||i==4||i==5)
              {
-               last = element.getData_konca();
-               StringTokenizer token2 = new StringTokenizer(last,".");
-            int dzien = Integer.parseInt(token2.nextToken());
-         int miesiac = Integer.parseInt(token2.nextToken());
-        int rok = Integer.parseInt(token2.nextToken());
-        GregorianCalendar cal3 = new GregorianCalendar(rok,miesiac-1,dzien);
-       dataKon = cal3.getTime();
+               last = element.getDataKoncaDate();
              }
          }
      }
         
-        
+        System.out.println(last);
          Ustaw_swieta sw = new Ustaw_swieta();
          SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
          String data_string = formatter.format(date);
@@ -1794,10 +1788,12 @@ public class Lista extends javax.swing.JFrame {
          {
              JOptionPane.showMessageDialog(this, "Niepoprawny kod pacjenta");
          }
-           else if(date.compareTo(dataKon)==-1 || date.compareTo(dataKon)==0)
+         
+           else if(date.compareTo(last)==-1 || date.compareTo(last)==0)
           {
               JOptionPane.showMessageDialog(this, "Data dodawanego pacjenta musi być późniejsza niż data zwolnienia ostatniego pacjenta oznaczona kolorem niebieskim lub zielonym");
           }
+          
           else if(sw.sprawdz_swieta(data_string, dayOfWeek)==true)
                      {
                             boolean zm  = true; 
@@ -1825,13 +1821,13 @@ public class Lista extends javax.swing.JFrame {
           {
                          dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
           }
-//       }
-//       catch(Exception ex)
-//          {
-//              JOptionPane.showMessageDialog(this,"Błąd");          }
+       }
+       catch(Exception ex)
+          {
+              JOptionPane.showMessageDialog(this,"Błąd");          
         
     }//GEN-LAST:event_jButton8ActionPerformed
- Date dataKon;
+    }
     private void jTable9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable9MouseClicked
        jTable9.clearSelection();
         p = evt.getPoint();
@@ -2025,16 +2021,15 @@ public class Lista extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-
-        
+               }
     }                                        
     }//GEN-LAST:event_jButton10ActionPerformed
    Date dataL;
-   String last;
+   Date last;
    String data_dodania_string;
    public void dodaj(String rodzaj,String pokoj, String pacjent , String kod, Date date  )
    {
+      
        lista2.clear();
        switch(rodzaj)
        {
@@ -2199,8 +2194,10 @@ public class Lista extends javax.swing.JFrame {
       zapis(true);
     
    }
-   int z;
-    boolean temp=false;
+   
+   Date dataOp;
+   int z=0;
+   boolean temp=false;
    Date data_poczatku;
    Date data_konca;
     
@@ -2211,7 +2208,7 @@ public class Lista extends javax.swing.JFrame {
         return false;
     }
     private void popupMenu(JFrame frame) {
-      
+      lista2.clear();
         menuItem = new JMenuItem(
                 "Usuń"
         );
@@ -2279,15 +2276,14 @@ public class Lista extends javax.swing.JFrame {
                        if ((chosenDate.compareTo(chosenDate2) == -1 || chosenDate.compareTo(chosenDate2) == 0)) {
                            kod2 = lista2.get(count).getKod();
                            pacjent2 = lista2.get(count).getPacjent();
-                           lozko2 = lista2.get(count).getPokoj();
 
                            lista2.get(count).setKod(kod1);
                            lista2.get(count).setPacjent(pacjent1);
-                           lista2.get(count).setPokoj(lozko1);
+
 
                            kod1 = kod2;
                            pacjent1 = pacjent2;
-                           lozko1 = lozko2;
+
                        }
                    }               
                    lista2.remove(lista2.size() - 1);
