@@ -797,37 +797,37 @@
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="90" minWidth="-1" prefWidth="90" resizable="true">
-                          <Title value="Rodzaj "/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="50" minWidth="-1" prefWidth="50" resizable="true">
-                          <Title value="&#x141;&#xf3;&#x17c;ko"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="110" minWidth="-1" prefWidth="110" resizable="true">
-                          <Title value="Pacjent"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="70" minWidth="70" prefWidth="-1" resizable="true">
-                          <Title value="Kod"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title value="Data przyj&#x119;cia"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title value="Data wypisu"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="30" minWidth="-1" prefWidth="30" resizable="true">
-                          <Title value="index"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
@@ -986,12 +986,12 @@
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="90" minWidth="-1" prefWidth="90" resizable="true">
+                        <Column maxWidth="120" minWidth="-1" prefWidth="120" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="50" minWidth="-1" prefWidth="50" resizable="true">
+                        <Column maxWidth="70" minWidth="-1" prefWidth="70" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -1067,38 +1067,38 @@
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="90" minWidth="-1" prefWidth="90" resizable="true">
-                          <Title value="Rodzaj "/>
+                        <Column maxWidth="120" minWidth="-1" prefWidth="120" resizable="true">
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="50" minWidth="-1" prefWidth="50" resizable="true">
-                          <Title value="&#x141;&#xf3;&#x17c;ko"/>
+                        <Column maxWidth="70" minWidth="-1" prefWidth="70" resizable="true">
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="110" minWidth="-1" prefWidth="110" resizable="true">
-                          <Title value="Pacjent"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="70" minWidth="70" prefWidth="-1" resizable="true">
-                          <Title value="Kod"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title value="Data przyj&#x119;cia"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title value="Data wypisu"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                         <Column maxWidth="30" minWidth="-1" prefWidth="30" resizable="true">
-                          <Title value="index"/>
+                          <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>

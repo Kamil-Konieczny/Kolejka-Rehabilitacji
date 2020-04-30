@@ -8,5 +8,5 @@ M.Pilny lozko6 27 05 2020 23534643 236345
 K.Stabilna lozko7 29 04 2020 23513251 236135
 K.Pilna lozko8 15 06 2020 77777777777 777777
 M.Niepelnosprawny lozko10 23 12 2020 64352342564 65
-K.Niepelnosprawna lozko11 21 10 2020 12312312312 12
+K.Niepelnosprawna lozko11 02 12 2020 51691651561 515165
 M.Stabilny lozko23 12 08 2020 -------- -----

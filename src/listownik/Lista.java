@@ -153,6 +153,58 @@ public class Lista extends javax.swing.JFrame {
         jTable10.setDefaultRenderer(Object.class,new Renderer());
         popupMenu(this);
         
+        
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model1 = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTable5.getModel();
+        DefaultTableModel model3 = (DefaultTableModel) jTable6.getModel();
+        DefaultTableModel model9 = (DefaultTableModel) jTable9.getModel();
+        DefaultTableModel model10 = (DefaultTableModel) jTable10.getModel();
+
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable1.scrollRectToVisible(jTable1.getCellRect(i, 0, true));
+
+            }
+        }
+        for (int i = 0; i < jTable2.getRowCount(); i++) {
+             int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable2.scrollRectToVisible(jTable2.getCellRect(i, 0, true));
+
+            }
+        }
+        for (int i = 0; i < jTable5.getRowCount(); i++) {
+              int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable5.scrollRectToVisible(jTable5.getCellRect(i, 0, true));
+
+            }
+        }
+        for (int i = 0; i < jTable6.getRowCount(); i++) {
+  int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable6.scrollRectToVisible(jTable6.getCellRect(i, 0, true));
+
+            }           
+        }
+          for (int i = 0; i < jTable9.getRowCount(); i++) {
+             int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable9.scrollRectToVisible(jTable9.getCellRect(i, 0, true));
+
+            }
+            
+        }
+            for (int i = 0; i < jTable10.getRowCount(); i++) {
+             int x= (int) model.getValueAt(i,6);
+            if (x==4) {
+                jTable10.scrollRectToVisible(jTable10.getCellRect(i, 0, true));
+
+            }
+            
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -612,21 +664,14 @@ public class Lista extends javax.swing.JFrame {
                         if (jTable6.getColumnModel().getColumnCount() > 0) {
                             jTable6.getColumnModel().getColumn(0).setPreferredWidth(90);
                             jTable6.getColumnModel().getColumn(0).setMaxWidth(90);
-                            jTable6.getColumnModel().getColumn(0).setHeaderValue("Rodzaj ");
                             jTable6.getColumnModel().getColumn(1).setPreferredWidth(50);
                             jTable6.getColumnModel().getColumn(1).setMaxWidth(50);
-                            jTable6.getColumnModel().getColumn(1).setHeaderValue("Łóżko");
                             jTable6.getColumnModel().getColumn(2).setPreferredWidth(110);
                             jTable6.getColumnModel().getColumn(2).setMaxWidth(110);
-                            jTable6.getColumnModel().getColumn(2).setHeaderValue("Pacjent");
                             jTable6.getColumnModel().getColumn(3).setMinWidth(70);
                             jTable6.getColumnModel().getColumn(3).setMaxWidth(70);
-                            jTable6.getColumnModel().getColumn(3).setHeaderValue("Kod");
-                            jTable6.getColumnModel().getColumn(4).setHeaderValue("Data przyjęcia");
-                            jTable6.getColumnModel().getColumn(5).setHeaderValue("Data wypisu");
                             jTable6.getColumnModel().getColumn(6).setPreferredWidth(30);
                             jTable6.getColumnModel().getColumn(6).setMaxWidth(30);
-                            jTable6.getColumnModel().getColumn(6).setHeaderValue("index");
                         }
 
                         jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -709,10 +754,10 @@ public class Lista extends javax.swing.JFrame {
                         });
                         jScrollPane9.setViewportView(jTable9);
                         if (jTable9.getColumnModel().getColumnCount() > 0) {
-                            jTable9.getColumnModel().getColumn(0).setPreferredWidth(90);
-                            jTable9.getColumnModel().getColumn(0).setMaxWidth(90);
-                            jTable9.getColumnModel().getColumn(1).setPreferredWidth(50);
-                            jTable9.getColumnModel().getColumn(1).setMaxWidth(50);
+                            jTable9.getColumnModel().getColumn(0).setPreferredWidth(120);
+                            jTable9.getColumnModel().getColumn(0).setMaxWidth(120);
+                            jTable9.getColumnModel().getColumn(1).setPreferredWidth(70);
+                            jTable9.getColumnModel().getColumn(1).setMaxWidth(70);
                             jTable9.getColumnModel().getColumn(2).setPreferredWidth(110);
                             jTable9.getColumnModel().getColumn(2).setMaxWidth(110);
                             jTable9.getColumnModel().getColumn(3).setMinWidth(70);
@@ -745,23 +790,16 @@ public class Lista extends javax.swing.JFrame {
                         });
                         jScrollPane10.setViewportView(jTable10);
                         if (jTable10.getColumnModel().getColumnCount() > 0) {
-                            jTable10.getColumnModel().getColumn(0).setPreferredWidth(90);
-                            jTable10.getColumnModel().getColumn(0).setMaxWidth(90);
-                            jTable10.getColumnModel().getColumn(0).setHeaderValue("Rodzaj ");
-                            jTable10.getColumnModel().getColumn(1).setPreferredWidth(50);
-                            jTable10.getColumnModel().getColumn(1).setMaxWidth(50);
-                            jTable10.getColumnModel().getColumn(1).setHeaderValue("Łóżko");
+                            jTable10.getColumnModel().getColumn(0).setPreferredWidth(120);
+                            jTable10.getColumnModel().getColumn(0).setMaxWidth(120);
+                            jTable10.getColumnModel().getColumn(1).setPreferredWidth(70);
+                            jTable10.getColumnModel().getColumn(1).setMaxWidth(70);
                             jTable10.getColumnModel().getColumn(2).setPreferredWidth(110);
                             jTable10.getColumnModel().getColumn(2).setMaxWidth(110);
-                            jTable10.getColumnModel().getColumn(2).setHeaderValue("Pacjent");
                             jTable10.getColumnModel().getColumn(3).setMinWidth(70);
                             jTable10.getColumnModel().getColumn(3).setMaxWidth(70);
-                            jTable10.getColumnModel().getColumn(3).setHeaderValue("Kod");
-                            jTable10.getColumnModel().getColumn(4).setHeaderValue("Data przyjęcia");
-                            jTable10.getColumnModel().getColumn(5).setHeaderValue("Data wypisu");
                             jTable10.getColumnModel().getColumn(6).setPreferredWidth(30);
                             jTable10.getColumnModel().getColumn(6).setMaxWidth(30);
-                            jTable10.getColumnModel().getColumn(6).setHeaderValue("index");
                         }
 
                         jButton9.setText("Zapisz w pliku");
@@ -2181,7 +2219,7 @@ public class Lista extends javax.swing.JFrame {
       {
           SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
        String temp = format.format(date);
-           if(tab[i].getData_poczatku().equals(temp))
+           if(tab[i].getData_poczatku().equals(temp)&&tab[i].getKod()==kod)
          {
              this.z=i;
          }
@@ -2194,8 +2232,6 @@ public class Lista extends javax.swing.JFrame {
       zapis(true);
     
    }
-   
-   Date dataOp;
    int z=0;
    boolean temp=false;
    Date data_poczatku;
