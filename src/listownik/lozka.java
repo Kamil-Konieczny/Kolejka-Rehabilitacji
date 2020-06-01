@@ -27,7 +27,6 @@ public class lozka {
     {
         return data_konca;
     }
-    
     public void setData_konca(Date data_konca)
     {
         this.data_konca = data_konca;

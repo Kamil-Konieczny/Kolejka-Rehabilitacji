@@ -622,6 +622,7 @@
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR)" type="code"/>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="M.Stabilny" noResource="true"/>
                     <Property name="rowHeight" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="35" type="code"/>
                     </Property>
@@ -734,6 +735,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="K.Stabilna" noResource="true"/>
                     <Property name="rowHeight" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="35" type="code"/>
                     </Property>
@@ -833,6 +835,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="K.Pilna" noResource="true"/>
                     <Property name="rowHeight" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="35" type="code"/>
                     </Property>
@@ -924,6 +927,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="M.Pilny" noResource="true"/>
                     <Property name="rowHeight" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="35" type="code"/>
                     </Property>
@@ -1023,6 +1027,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="K.Niepelnosprawna" noResource="true"/>
                     <Property name="rowHeight" type="int" value="30"/>
                     <Property name="rowMargin" type="int" value="2"/>
                     <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">

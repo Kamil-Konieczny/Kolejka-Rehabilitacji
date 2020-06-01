@@ -529,6 +529,7 @@ public class Lista extends javax.swing.JFrame {
                         jTable1.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                         jTable1.setColumnSelectionAllowed(false);
                         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                        jTable1.setName("M.Stabilny"); // NOI18N
                         jTable1.setRowHeight(35);
                         jTable1.setRowMargin(2);
                         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -601,6 +602,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
+                        jTable5.setName("K.Stabilna"); // NOI18N
                         jTable5.setRowHeight(35);
                         jTable5.setRowMargin(2);
                         jTable5.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -647,6 +649,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
+                        jTable6.setName("K.Pilna"); // NOI18N
                         jTable6.setRowHeight(35);
                         jTable6.setRowMargin(2);
                         jTable6.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -693,6 +696,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
+                        jTable2.setName("M.Pilny"); // NOI18N
                         jTable2.setRowHeight(35);
                         jTable2.setRowMargin(2);
                         jTable2.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -739,6 +743,7 @@ public class Lista extends javax.swing.JFrame {
                                 "Rodzaj ", "Łóżko", "Pacjent", "Kod", "Data przyjęcia", "Data wypisu", "index"
                             }
                         ));
+                        jTable9.setName("K.Niepelnosprawna"); // NOI18N
                         jTable9.setRowHeight(30);
                         jTable9.setRowMargin(2);
                         jTable9.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -1689,183 +1694,7 @@ public class Lista extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_formWindowClosing
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        String temp = jComboBox2.getSelectedItem().toString();
-         List<String> lozka = new LinkedList<>();
-        for(lozka element : main.lista)
-        {
-            if(element.getRodzaj().equals(temp))
-            {
-            String tempp = element.getPokoj();
-            lozka.add(tempp);
-            }
-        }
-        DefaultComboBoxModel dml= new DefaultComboBoxModel();
-        for (int i = 0; i <lozka.size(); i++) {
-        dml.addElement(lozka.get(i));
-}
-
-        jComboBox1.setModel(dml);
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-         String x = jTextField1.getText();
-        int y = x.length();
-        
-        if(!jestLiczba(evt.getKeyChar()))
-            evt.consume();
- 
-        if(y == 11)
-            evt.consume();
-      
-    }//GEN-LAST:event_jTextField1KeyTyped
-
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        String x = jTextField2.getText();
-        int y = x.length();
-        
-        if(!jestLiczba(evt.getKeyChar()))
-            evt.consume();
- 
-        if(y == 6)
-            evt.consume();
-    }//GEN-LAST:event_jTextField2KeyTyped
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-       lista2.clear();
-       try 
-       {
-        String rodzaj = jComboBox2.getSelectedItem().toString();
-       String pokoj = jComboBox1.getSelectedItem().toString();
-        String pacjent = jTextField1.getText();
-         String kod = jTextField2.getText(); 
-         Date date = jDateChooser1.getDate();
-        
-           switch(rodzaj)
-       {
-           case "M.Stabilny":
-           {
-               tabela = jTable1;
-               break;
-           }
-           case "M.Pilny":
-           {
-               tabela = jTable2;
-               break;
-           }
-           case "K.Stabilna":
-           {
-               tabela = jTable5;
-               break;
-           }
-           case "K.Pilna":
-           {
-               tabela = jTable6;
-               break;
-           }
-            case "K.Niepelnosprawna":
-           {
-               tabela = jTable9;
-               break;
-           }
-           case "M.Niepelnosprawny":
-           {
-               tabela = jTable10;
-               break;
-           }
-       }
-     DefaultTableModel model = (DefaultTableModel)tabela.getModel();
-     for (int count = 0; count < model.getRowCount(); count++){
-     String rodzaj2 = model.getValueAt(count,0).toString();
-     String lozko2 = model.getValueAt(count,1).toString();
-     String pacjent2 = model.getValueAt(count,2).toString();
-     String kod2 = model.getValueAt(count,3).toString();
-     String dataP2 = model.getValueAt(count,4).toString();
-     String dataK2 = model.getValueAt(count,5).toString();
-     String i =  model.getValueAt(count,6).toString();
-     int index2 = Integer.parseInt(i);
-     lista2.add(new KolejkaObj(rodzaj2,lozko2,pacjent2,dataP2,dataK2,kod2,index2));
-     }
-     for(KolejkaObj element:lista2)
-     {
-         if(pokoj.equals(element.getPokoj()))
-         {  
-             int i = element.getIndex();
-             
-             if(i==3||i==4||i==5)
-             {
-               last = element.getDataKoncaDate();
-             }
-         }
-     }
-        
-        System.out.println(last);
-         Ustaw_swieta sw = new Ustaw_swieta();
-         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-         String data_string = formatter.format(date);
-         String  dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
-
-         if(rodzaj.length()<1)
-         {
-             JOptionPane.showMessageDialog(this, "Nie wybrano rodzaju");
-         }
-         else if(pokoj.length()<1)
-         {
-             JOptionPane.showMessageDialog(this, "Nie ma łóżka dla tego rodzaju pacjenta");
-         }
-         else if(pacjent.length()<1)
-         {
-             JOptionPane.showMessageDialog(this, "Niepoprawny numer pacjenta");
-         }
-          else if(kod.length()<1)
-         {
-             JOptionPane.showMessageDialog(this, "Niepoprawny kod pacjenta");
-         }
-         
-           else if(date.compareTo(last)==-1 || date.compareTo(last)==0)
-          {
-              JOptionPane.showMessageDialog(this, "Data dodawanego pacjenta musi być późniejsza niż data zwolnienia ostatniego pacjenta oznaczona kolorem niebieskim lub zielonym");
-          }
-          
-          else if(sw.sprawdz_swieta(data_string, dayOfWeek)==true)
-                     {
-                            boolean zm  = true; 
-                            int temp = 0;
-                         Calendar cal = Calendar.getInstance();    
-                            
-                     while(zm==true)
-                     {                 
-                            cal.setTime(date); 
-                            cal.add(Calendar.DAY_OF_MONTH,1);
-                            date = cal.getTime();  
-                            data_string = formatter.format(date);
-                            dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
-                            Ustaw_swieta swi = new Ustaw_swieta();
-                            zm = swi.sprawdz_swieta(data_string ,dayOfWeek);                  
-                     }
-                     
-                     int a =  JOptionPane.showConfirmDialog(this, "W tym dniu występuje święto lub jest to weekend \n Zapisać na: "+ data_string);
-                     if(a == JOptionPane.YES_OPTION)
-                     {
-                          dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
-                     }
-                     }
-         else
-          {
-                         dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
-          }
-       }
-       catch(Exception ex)
-          {
-              JOptionPane.showMessageDialog(this,"Błąd");          
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-    }
+ //   }
     private void jTable9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable9MouseClicked
        jTable9.clearSelection();
         p = evt.getPoint();
@@ -2062,6 +1891,182 @@ public class Lista extends javax.swing.JFrame {
                }
     }                                        
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //       lista2.clear();
+        //       try
+        //       {
+            //        String rodzaj = jComboBox2.getSelectedItem().toString();
+            //       String pokoj = jComboBox1.getSelectedItem().toString();
+            //        String pacjent = jTextField1.getText();
+            //         String kod = jTextField2.getText();
+            //         Date date = jDateChooser1.getDate();
+            //
+            //           switch(rodzaj)
+            //       {
+                //           case "M.Stabilny":
+                //           {
+                    //               tabela = jTable1;
+                    //               break;
+                    //           }
+                //           case "M.Pilny":
+                //           {
+                    //               tabela = jTable2;
+                    //               break;
+                    //           }
+                //           case "K.Stabilna":
+                //           {
+                    //               tabela = jTable5;
+                    //               break;
+                    //           }
+                //           case "K.Pilna":
+                //           {
+                    //               tabela = jTable6;
+                    //               break;
+                    //           }
+                //            case "K.Niepelnosprawna":
+                //           {
+                    //               tabela = jTable9;
+                    //               break;
+                    //           }
+                //           case "M.Niepelnosprawny":
+                //           {
+                    //               tabela = jTable10;
+                    //               break;
+                    //           }
+                //       }
+            //     DefaultTableModel model = (DefaultTableModel)tabela.getModel();
+            //     for (int count = 0; count < model.getRowCount(); count++){
+                //     String rodzaj2 = model.getValueAt(count,0).toString();
+                //     String lozko2 = model.getValueAt(count,1).toString();
+                //     String pacjent2 = model.getValueAt(count,2).toString();
+                //     String kod2 = model.getValueAt(count,3).toString();
+                //     String dataP2 = model.getValueAt(count,4).toString();
+                //     String dataK2 = model.getValueAt(count,5).toString();
+                //     String i =  model.getValueAt(count,6).toString();
+                //     int index2 = Integer.parseInt(i);
+                //     lista2.add(new KolejkaObj(rodzaj2,lozko2,pacjent2,dataP2,dataK2,kod2,index2));
+                //     }
+            //     for(KolejkaObj element:lista2)
+            //     {
+                //         if(pokoj.equals(element.getPokoj()))
+                //         {
+                    //             int i = element.getIndex();
+                    //
+                    //             if(i==3||i==4||i==5)
+                    //             {
+                        //               last = element.getDataKoncaDate();
+                        //             }
+                    //         }
+                //     }
+            //
+            //        System.out.println(last);
+            //         Ustaw_swieta sw = new Ustaw_swieta();
+            //         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+            //         String data_string = formatter.format(date);
+            //         String  dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
+            //
+            //         if(rodzaj.length()<1)
+            //         {
+                //             JOptionPane.showMessageDialog(this, "Nie wybrano rodzaju");
+                //         }
+            //         else if(pokoj.length()<1)
+            //         {
+                //             JOptionPane.showMessageDialog(this, "Nie ma łóżka dla tego rodzaju pacjenta");
+                //         }
+            //         else if(pacjent.length()<1)
+            //         {
+                //             JOptionPane.showMessageDialog(this, "Niepoprawny numer pacjenta");
+                //         }
+            //          else if(kod.length()<1)
+            //         {
+                //             JOptionPane.showMessageDialog(this, "Niepoprawny kod pacjenta");
+                //         }
+            //
+            //           else if(date.compareTo(last)==-1 || date.compareTo(last)==0)
+            //          {
+                //              JOptionPane.showMessageDialog(this, "Data dodawanego pacjenta musi być późniejsza niż data zwolnienia ostatniego pacjenta oznaczona kolorem niebieskim lub zielonym");
+                //          }
+            //
+            //          else if(sw.sprawdz_swieta(data_string, dayOfWeek)==true)
+            //                     {
+                //                            boolean zm  = true;
+                //                            int temp = 0;
+                //                         Calendar cal = Calendar.getInstance();
+                //
+                //                     while(zm==true)
+                //                     {
+                    //                            cal.setTime(date);
+                    //                            cal.add(Calendar.DAY_OF_MONTH,1);
+                    //                            date = cal.getTime();
+                    //                            data_string = formatter.format(date);
+                    //                            dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
+                    //                            Ustaw_swieta swi = new Ustaw_swieta();
+                    //                            zm = swi.sprawdz_swieta(data_string ,dayOfWeek);
+                    //                     }
+                //
+                //                     int a =  JOptionPane.showConfirmDialog(this, "W tym dniu występuje święto lub jest to weekend \n Zapisać na: "+ data_string);
+                //                     if(a == JOptionPane.YES_OPTION)
+                //                     {
+                    //                          dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
+                    //                     }
+                //                     }
+            //         else
+            //          {
+                //                         dodaj( rodzaj, pokoj,  pacjent ,  kod,  date  );
+                //          }
+            //       }
+        //       catch(Exception ex)
+        //          {
+            //              JOptionPane.showMessageDialog(this,"Błąd");
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        String x = jTextField2.getText();
+        int y = x.length();
+
+        if(!jestLiczba(evt.getKeyChar()))
+        evt.consume();
+
+        if(y == 6)
+        evt.consume();
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        String x = jTextField1.getText();
+        int y = x.length();
+
+        if(!jestLiczba(evt.getKeyChar()))
+        evt.consume();
+
+        if(y == 11)
+        evt.consume();
+
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        String temp = jComboBox2.getSelectedItem().toString();
+        List<String> lozka = new LinkedList<>();
+        for(lozka element : main.lista)
+        {
+            if(element.getRodzaj().equals(temp))
+            {
+                String tempp = element.getPokoj();
+                lozka.add(tempp);
+            }
+        }
+        DefaultComboBoxModel dml= new DefaultComboBoxModel();
+        for (int i = 0; i <lozka.size(); i++) {
+            dml.addElement(lozka.get(i));
+        }
+
+        jComboBox1.setModel(dml);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
    Date dataL;
    Date last;
    String data_dodania_string;
@@ -2248,6 +2253,7 @@ public class Lista extends javax.swing.JFrame {
         menuItem = new JMenuItem(
                 "Usuń"
         );
+        
        menuItem.getAccessibleContext().setAccessibleDescription("Usuń");
        menuItem.addActionListener(new ActionListener() {
        @Override
@@ -2329,9 +2335,66 @@ public class Lista extends javax.swing.JFrame {
                        model.addRow(new Object[]{element.getRodzaj(), element.getPokoj(), element.getPacjent(), element.getKod(), element.getData_poczatku(), element.getData_konca(), element.getIndex()});
                    }
                    JOptionPane.showMessageDialog(null, "Usunięto pacjenta o peslu: "+pesel);
+
+//       switch(tabela.getName())
+//       {
+//           case "jTable1:
+//           {
+//               
+//               break;
+//           }
+//           case "M.Pilny":
+//           {
+//               tabela = jTable2;
+//               break;
+//           }
+//           case "K.Stabilna":
+//           {
+//               tabela = jTable5;
+//               break;
+//           }
+//           case "K.Pilna":
+//           {
+//               tabela = jTable6;
+//               break;
+//           }
+//           case "K.Niepelnosprawna":
+//           {
+//               tabela = jTable9;
+//               break;
+//           }
+//           case "M.Niepelnosprawny":
+//           {
+//               tabela = jTable10;
+//               break;
+//           }
+//       }
+
+       for(lozka element:main.lista)
+       {
+
+           if(element.getRodzaj().equals(tabela.getName()))
+           {
+               
+               String lozko = element.getPokoj();
+               for(KolejkaObj ele:lista2)
+               {  
+                   if(ele.getPokoj().equals(lozko))
+                   {
+                      element.setData_konca(ele.getDataKoncaDate());
+                   }                        
+               }
+           }
+       }
+              
                    lista2.clear();
                }
-                else {
+                
+                else if(indeX == 5)
+                {
+                     JOptionPane.showMessageDialog(null, "Rehabilitacja zakończona, nie można usunąć");
+                }                
+                    else {
                    tempp = false;
                    JOptionPane.showMessageDialog(null, "Powiadomiono pacjenta z późniejszą datą, nie można usunąć tej pozycji");
                }
